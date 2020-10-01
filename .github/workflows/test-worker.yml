@@ -1,0 +1,23 @@
+name: Test pyzeebe
+
+on:
+  push:
+    branches: [ master, development, feature/*, bugfix/*, maintenance/* ]
+  pull_request:
+    branches: [ master, development, feature/*, bugfix/*, maintenance/* ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    container: python:3.8
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          pip install pipenv
+          pipenv install --dev
+      - name: Test with pytest
+        run: |
+          pipenv run py.test tests/unit
