@@ -21,8 +21,3 @@ jobs:
       - name: Test with pytest
         run: |
           pipenv run py.test tests/unit
-      - name: Upload to coveralls
-        run: |
-          pipenv run coveralls
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
