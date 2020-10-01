@@ -1,4 +1,3 @@
-import logging
 from typing import Dict
 
 from pyzeebe import ZeebeTaskRouter, Job
@@ -7,7 +6,6 @@ example_task_router = ZeebeTaskRouter()
 
 
 def example_exception_handler(exception: Exception, job: Job) -> None:
-    logging.error(f"Failed to execute job: {job}. Error: {exception}")
     job.set_failure_status(f"Error: {exception}")
 
 

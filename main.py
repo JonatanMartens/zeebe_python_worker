@@ -6,7 +6,7 @@ from loguru import logger
 from pyzeebe import ZeebeWorker
 
 from worker.decorators.log_decorator import log_decorator
-from worker.tasks.example_task import example_task_router
+from worker.tasks import example_task_router
 from worker.utils.config import get_credentials, get_zeebe_config
 
 logger.add(sys.stderr, format="{time} {level} {message}", filter="root", level="INFO")

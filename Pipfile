@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 pylint = "~=2.6.0"
 pytest = "~=6.1.0"
+coverage = "~=5.3"
 
 [packages]
 pyzeebe = "~=2.2.0"
