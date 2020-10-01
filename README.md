@@ -19,6 +19,10 @@ To build your docker image:
 $ docker build . -t <image_name>:<image_tag> 
 ```
 
+## Zeebe
+
+The connection to zeebe is made using the [`pyzeebe`](https://github.com/JonatanMartens/pyzeebe) library
+
 ## Logging
 
 Logging is done using [`loguru`](https://github.com/Delgan/loguru).
@@ -26,3 +30,7 @@ Logging is done using [`loguru`](https://github.com/Delgan/loguru).
 ## Tests
 
 Tests are done using `pytest`. They are performed automatically when pushing to: `master`, `development`, `feature/*`, `bugfix/*`, `maintenance/*` branches.
+
+## Python version
+
+The python version used here is 3.8, but 3.5 plus should work if desired (as this is what `pyzeebe` supports)
