@@ -1,32 +1,29 @@
-import logging
+import os
+import sys
 from configparser import ConfigParser
 
+from loguru import logger
 from pyzeebe import ZeebeWorker
 
-from worker.decorators.logging_decorators import before_task_logging_decorator, after_task_logging_decorator
+from worker.decorators.log_decorator import log_decorator
 from worker.tasks.example_task import example_task_router
-from worker.utils.config import get_credentials
+from worker.utils.config import get_credentials, get_zeebe_config
 
-logging.basicConfig(filename='example.log', level=logging.DEBUG)
+logger.add(sys.stderr, format="{time} {level} {message}", filter="root", level="INFO")
 
 config = ConfigParser()
-config.read("config/worker.ini")
+config.read(os.getenv("CONFIG_FILE_LOCATION") or "/src/config/worker.ini")
 
 credentials = get_credentials(config)
+zeebe_config = get_zeebe_config(config)
 
-zeebe_hostname = config.get("zeebe", "hostname")
-zeebe_port = config.getint("zeebe", "port")
-zeebe_request_timeout = config.getint("zeebe", "request_timeout")
-zeebe_secure_connection = config.getboolean("zeebe", "secure_connection")
+zeebe_worker = ZeebeWorker(credentials=credentials, **zeebe_config)
 
-zeebe_worker = ZeebeWorker(hostname=zeebe_hostname, port=zeebe_port, secure_connection=zeebe_secure_connection,
-                           request_timeout=zeebe_request_timeout, credentials=credentials)
-
-zeebe_worker.before(before_task_logging_decorator)
-zeebe_worker.after(after_task_logging_decorator)
+zeebe_worker.before(log_decorator)
+zeebe_worker.after(log_decorator)
 
 zeebe_worker.include_router(example_task_router)
 
 if __name__ == '__main__':
-    logging.info(f"Connecting to gateway at address: {zeebe_worker.zeebe_adapter.connection_uri}")
+    logger.info(f"Connecting to gateway at address: {zeebe_worker.zeebe_adapter.connection_uri}")
     zeebe_worker.work()

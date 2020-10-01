@@ -8,7 +8,8 @@ pylint = "~=2.6.0"
 pytest = "~=6.1.0"
 
 [packages]
-pyzeebe = "~=2.0.1"
+pyzeebe = "~=2.2.0"
+loguru = "~=0.5.3"
 
 [requires]
 python_version = "3.8"
