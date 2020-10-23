@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2bdc1ae98b107c1b414b2bdd55228351a7a1fb104b2b6df5e84c14f895dec1df"
+            "sha256": "82a533741d33ef37aad470d0d77817a4ff5a49344cccc68ebdfcc1fa6e2e3209"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -121,11 +121,11 @@
         },
         "pyzeebe": {
             "hashes": [
-                "sha256:00595b04b1389ffb6ec376e826905124e01dd2de233e643f3afd7b4a25b4072c",
-                "sha256:9576a9af4ee073daf8dd08ffc304d6588d9713ac4a4ab44b2a9e26ee00b2b175"
+                "sha256:1da15bd41a28743036874edaf673eef3e5228965b2efb745049f070f74b41cb6",
+                "sha256:448db8f92257b74d63873f48deaef598c09cfcb4fb69deb9b3bec1c1199653d1"
             ],
             "index": "pypi",
-            "version": "==2.2.1"
+            "version": "==2.2.2"
         },
         "requests": {
             "hashes": [
@@ -150,10 +150,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a",
-                "sha256:e7983572181f5e1522d9c98453462384ee92a0be7fac5f1413a1e35c56cc0461"
+                "sha256:8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2",
+                "sha256:f5321fbe4bf3fefa0efd0bfe7fb14e90909eb62a48ccda331726b4319897dd5e"
             ],
-            "version": "==1.25.10"
+            "version": "==1.25.11"
         },
         "zeebe-grpc": {
             "hashes": [
