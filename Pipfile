@@ -9,7 +9,7 @@ pytest = "~=6.1.1"
 
 [packages]
 pyzeebe = "~=2.2.2"
-loguru = "~=0.5.3"
+loguru = "~=0.6.0"
 
 [requires]
 python_version = "3.8"
